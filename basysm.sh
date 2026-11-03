@@ -17,27 +17,32 @@ echo "Iniciando mantenimiento del sistema..."
 echo ""
 
 #1. Actualizar la lista de paquetes
-echo "[1/5] Actualizando la lista de paquetes..."
+echo "[1/6] Actualizando la lista de paquetes..."
 sudo apt update -y
 echo ""
 
 #2. Actualizar paquetes instalados
-echo "[2/5] Actualizando paquetes..."
+echo "[2/6] Actualizando paquetes..."
 sudo apt upgrade -y
 echo ""
 
 #3. Limpiar caché de paquetes antiguos
-echo "[3/5] Limpiando caché de paquetes..."
+echo "[3/6] Limpiando caché de paquetes..."
 sudo apt autoclean -y
 echo ""
 
 #4. Eliminar dependencias huerfanas
-echo "[4/5] Eliminando dependencias no utilizadas..."
+echo "[4/6] Eliminando dependencias no utilizadas..."
 sudo apt autoremove -y
 echo ""
 
-#5. Limpiar flatpaks no utilizados
-echo "[5/5] Limpiando flatpaks no utilizados..."
+#5. Actualizar paquetes Flatpak instalados
+echo "[5/6] Actualizando paquetes Flatpak... "
+flatpak update -y
+echo ""
+
+#6. Limpiar paquetes Flatpak no utilizados
+echo "[6/6] Limpiando paquetes Flatpak no utilizados..."
 flatpak uninstall --unused -y
 echo ""
 echo ""
