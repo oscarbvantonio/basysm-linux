@@ -86,7 +86,7 @@ if command -v sensors &> /dev/null; then
 echo ""
 
 #3. Errores en el último arranque
-echo "(LOGS) Verificando errores en el último arranque..."
+echo "(LOGS) Verificando errores en la sesión actual..."
 ERRORES_BOOT=$(sudo journalctl -b -p err --no-pager 2>/dev/null | wc -l)
 if [ "$ERRORES_BOOT" -gt 20 ]; then
 echo -e "[${ROJO}X${NC}] ALERTA: $ERRORES_BOOT errores en este arranque"
